@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://127.0.0.1:3000/")
 public class WsApplication {
 
 	public static void main(String[] args) {
