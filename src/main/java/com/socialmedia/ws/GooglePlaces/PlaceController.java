@@ -23,14 +23,7 @@ public class PlaceController {
 
    @Autowired
    PlaceServices placeServices;
-
-   @GetMapping("/api/1.0/place")
-   public String postPlace() {
-      System.out.println("merhaalar");
-      String message = "Başarılı";
-      return message;
-   }
-
+   
    @PostMapping
    ("/api/2.0/place")
    public Places postPalaces(@RequestBody Map<String, String> requestParams) throws Exception {  

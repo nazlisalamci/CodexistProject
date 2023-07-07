@@ -1,0 +1,4 @@
+# .gitignore
+
+# Application properties
+/src/main/resources/application.properties

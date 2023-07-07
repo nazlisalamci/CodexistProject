@@ -2,9 +2,11 @@ package com.socialmedia.ws.GooglePlaces;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import com.google.maps.GeoApiContext;
@@ -13,13 +15,15 @@ import com.google.maps.model.LatLng;
 import com.google.maps.model.PlaceDetails;
 import com.google.maps.model.PlacesSearchResponse;
 import com.google.maps.model.PlacesSearchResult;
+import java.util.ResourceBundle;
 
 @Service
 public class PlaceServices {
 
     PlaceRepository placeRepository;
     private final GeoApiContext geoApiContext;
-    private final String apiKey = "AIzaSyCg2-A6lzPwvHBij9kNCKdDYYNZrjy6n3s";
+    @Value("${apiKey}") private String apiKey;
+
 
     public PlaceServices(PlaceRepository placeRepository) {
         this.placeRepository = placeRepository;
@@ -40,7 +44,7 @@ public class PlaceServices {
     }
 
       public Places searchPlaces(double latitude, double longitude, int radius) throws Exception {
-
+        
         Places p = new Places();
         p = placeRepository.findPlaces(latitude, longitude, radius);
         if (p != null) {
@@ -71,5 +75,4 @@ public class PlaceServices {
         }
 
     }
-
 }
